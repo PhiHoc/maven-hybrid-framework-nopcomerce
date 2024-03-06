@@ -1,1 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Nopcommerce">
+    <listeners>
+
+    </listeners>
+
+    <test>
+        <classes>
+            <class name=""></class>
+        </classes>
+    </test>
+</suite>
