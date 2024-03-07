@@ -504,6 +504,12 @@ public class BasePage {
         return PageGeneratorManager.getRegisterPage(driver);
     }
 
+    public RegisterPO clickToLogoutLink() {
+        waitForElementClickable(BasePageUI.LOGOUT_LINK);
+        clickToElement(BasePageUI.LOGOUT_LINK);
+        return PageGeneratorManager.getRegisterPage(driver);
+    }
+
     private long longTimeOut = GlobalConstants.getGlobalConstants().getLongTimeout();
     private long shortTimeOut = GlobalConstants.getGlobalConstants().getShortTimeout();
     private WebDriver driver;

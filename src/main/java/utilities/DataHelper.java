@@ -33,4 +33,7 @@ public class DataHelper {
         return faker.address().city();
     }
 
+    public String getPassword(){
+        return faker.internet().password(8,16,true,true);
+    }
 }

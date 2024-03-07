@@ -59,6 +59,7 @@ public class BaseTest {
 
         driver.get(getEnvironment(env));
         driver.manage().timeouts().implicitlyWait(longTimeout, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
         return driver;
     }
 

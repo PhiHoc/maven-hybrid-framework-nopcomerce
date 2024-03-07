@@ -1,6 +1,7 @@
 package nopcomerce.pageObjects;
 
 import commons.BasePage;
+import net.bytebuddy.asm.Advice;
 import nopcomerce.PageUIs.RegisterPUI;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverInfo;
@@ -11,8 +12,6 @@ public class RegisterPO extends BasePage {
     public RegisterPO(WebDriver driver){
         super(driver);
     }
-
-
 
     WebDriver driver;
 
@@ -45,4 +44,20 @@ public class RegisterPO extends BasePage {
         waitForElementVisible(RegisterPUI.CONFIRM_PASSWORD_ERROR_MESSAGE);
         return getElementText(RegisterPUI.CONFIRM_PASSWORD_ERROR_MESSAGE);
     }
+
+    public void enterToTextBoxById(String id, String value) {
+        waitForElementVisible(RegisterPUI.DYNAMIC_TEXTBOX_BY_ID,id);
+        sendKeysToElement(RegisterPUI.DYNAMIC_TEXTBOX_BY_ID,value,id);
+    }
+
+    public String getRegisterSuccessMessage() {
+        waitForElementVisible(RegisterPUI.REGISTER_SUCCESS_MESSAGE);
+        return getElementText(RegisterPUI.REGISTER_SUCCESS_MESSAGE);
+    }
+
+    public String getErrorMessageAtValidationSummaryField() {
+        waitForElementVisible(RegisterPUI.VALIDATION_SUMMARY_MESSAGE);
+        return getElementText(RegisterPUI.VALIDATION_SUMMARY_MESSAGE);
+    }
+
 }
