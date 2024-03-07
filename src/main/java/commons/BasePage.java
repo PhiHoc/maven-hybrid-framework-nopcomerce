@@ -1,5 +1,6 @@
 package commons;
 
+import nopcomerce.pageObjects.LoginPO;
 import nopcomerce.pageObjects.RegisterPO;
 import nopcomerce.pageObjects.PageGeneratorManager;
 import org.openqa.selenium.*;
@@ -492,11 +493,11 @@ public class BasePage {
         return driver.manage().getCookies();
     }
 
-//    public RegisterPO clickToLoginLink() {
-//        waitForElementClickable(BasePageUI.LOGIN_LINK);
-//        clickToElement(BasePageUI.LOGIN_LINK);
-//        return PageGeneratorManager.getLoginPage(driver);
-//    }
+    public LoginPO clickToLoginLink() {
+        waitForElementClickable(BasePageUI.LOGIN_LINK);
+        clickToElement(BasePageUI.LOGIN_LINK);
+        return PageGeneratorManager.getLoginPage(driver);
+    }
 
     public RegisterPO clickToRegisterLink() {
         waitForElementClickable(BasePageUI.REGISTER_LINK);
@@ -508,6 +509,11 @@ public class BasePage {
         waitForElementClickable(BasePageUI.LOGOUT_LINK);
         clickToElement(BasePageUI.LOGOUT_LINK);
         return PageGeneratorManager.getRegisterPage(driver);
+    }
+
+    public boolean isMyAccountLinkDisplayed(){
+        waitForElementVisible(BasePageUI.MY_ACCOUNT_LINK);
+        return isElementDisplayed(BasePageUI.MY_ACCOUNT_LINK);
     }
 
     private long longTimeOut = GlobalConstants.getGlobalConstants().getLongTimeout();

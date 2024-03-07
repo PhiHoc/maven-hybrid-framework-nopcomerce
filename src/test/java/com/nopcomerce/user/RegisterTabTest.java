@@ -1,9 +1,8 @@
-package com.nopcomerce.login;
+package com.nopcomerce.user;
 
 import commons.BaseTest;
 import commons.GlobalConstants;
 import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import nopcomerce.pageObjects.HomePO;
 import nopcomerce.pageObjects.PageGeneratorManager;

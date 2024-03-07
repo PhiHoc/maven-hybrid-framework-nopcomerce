@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverInfo;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 public class RegisterPO extends BasePage {
     public RegisterPO(WebDriver driver){
@@ -69,4 +70,13 @@ public class RegisterPO extends BasePage {
         return getElementText(RegisterPUI.VALIDATION_SUMMARY_MESSAGE);
     }
 
+    public void registerValidAccount(String firstName, String lastName, String email, String password) {
+        enterToTextBoxById("FirstName", firstName);
+        enterToTextBoxById("LastName", lastName);
+        enterToTextBoxById("Email", email);
+        enterToTextBoxById("Password", password);
+        enterToTextBoxById("ConfirmPassword", password);
+        clickToRegisterButton();
+        Assert.assertEquals(getRegisterSuccessMessage(), "Your registration completed");
+    }
 }

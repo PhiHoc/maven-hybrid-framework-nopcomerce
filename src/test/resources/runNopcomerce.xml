@@ -11,7 +11,7 @@
         <classes>
             <parameter name="browser" value="CHROME"/>
             <parameter name="env" value="user"/>
-            <class name="com.nopcomerce.login.RegisterTabTest"></class>
+            <class name="com.nopcomerce.user.LoginTabTest"></class>
         </classes>
     </test>
 </suite>

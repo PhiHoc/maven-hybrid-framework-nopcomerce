@@ -14,4 +14,9 @@ public class PageGeneratorManager {
     public static RegisterPO getRegisterPage(WebDriver driver){
         return new RegisterPO(driver);
     }
+
+    @Step("Open Login Page")
+    public static LoginPO getLoginPage(WebDriver driver){
+        return new LoginPO(driver);
+    }
 }
