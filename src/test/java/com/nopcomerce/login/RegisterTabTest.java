@@ -6,20 +6,19 @@ import nopcomerce.pageObjects.RegisterPO;
 import nopcomerce.pageObjects.PageGeneratorManager;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 public class RegisterTabTest extends BaseTest {
 
     @Parameters({"browser", "env"})
-    @BeforeMethod
+    @BeforeClass
     public void beforeMethod(String browserName, String envName) {
         driver = getBrowserDriver(browserName, envName);
 
+        log.info("Pre-condition 01 - Get Home Page");
         homePO = PageGeneratorManager.getHomePage(driver);
 
+        log.info("Pre-condition 02 - Click to register link");
         registerPO = homePO.clickToRegisterLink();
     }
 
@@ -59,7 +58,7 @@ public class RegisterTabTest extends BaseTest {
 
     }
 
-    @AfterMethod
+    @AfterClass
     public void afterMethod() {
         closeBrowserDriver();
     }
