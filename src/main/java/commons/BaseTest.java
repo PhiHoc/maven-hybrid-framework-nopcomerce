@@ -29,7 +29,7 @@ public class BaseTest {
 //		deleteAllFileInFolder("reportNGImage");
 
 //         Remove all file in Allure attachment (json file)
-//        deleteAllFileInFolder("allure-json");
+        deleteAllFileInFolder("allure-json");
     }
 
     protected WebDriver getBrowserDriver(String browserName,String env) {

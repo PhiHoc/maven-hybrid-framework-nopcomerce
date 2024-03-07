@@ -2,6 +2,9 @@ package com.nopcomerce.login;
 
 import commons.BaseTest;
 import commons.GlobalConstants;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
 import nopcomerce.pageObjects.HomePO;
 import nopcomerce.pageObjects.PageGeneratorManager;
 import nopcomerce.pageObjects.RegisterPO;
@@ -10,6 +13,8 @@ import org.testng.Assert;
 import org.testng.annotations.*;
 import utilities.DataHelper;
 
+
+@Feature("Register Tests")
 public class RegisterTabTest extends BaseTest {
 
     @Parameters({"browser", "env"})
@@ -38,6 +43,7 @@ public class RegisterTabTest extends BaseTest {
         registerPO = homePO.clickToRegisterLink();
     }
 
+    @Description("Register with empty data")
     @Test
     public void Register_01_Register_With_Empty_Data() {
         log.info("Register 01 - Step 01: Click to 'Register' button ");
@@ -51,6 +57,7 @@ public class RegisterTabTest extends BaseTest {
         Assert.assertEquals(registerPO.getErrorMessageAtConfirmPasswordField(), "Password is required.");
     }
 
+    @Description("Register with invalid email")
     @Test
     public void Register_02_Register_With_Invalid_Email() {
         log.info("Register 02 - Step 01: Enter invalid data '" + invalidEmail + "'to email textbox ");
@@ -63,6 +70,7 @@ public class RegisterTabTest extends BaseTest {
         Assert.assertEquals(registerPO.getErrorMessageAtEmailField(), "Wrong email");
     }
 
+    @Description("Register with valid information")
     @Test
     public void Register_03_Register_With_Valid_Information() {
         log.info("Register 03 - Step 01: Enter to firstname textbox: '" + firstName + "'");
@@ -91,6 +99,7 @@ public class RegisterTabTest extends BaseTest {
         homePO = PageGeneratorManager.getHomePage(driver);
     }
 
+    @Description("Register with registered email")
     @Test
     public void Register_04_Register_With_Existed_Email() {
         log.info("Register 04 - Step 01: Enter to firstname textbox: '" + firstName + "'");
@@ -115,6 +124,7 @@ public class RegisterTabTest extends BaseTest {
         Assert.assertEquals(registerPO.getErrorMessageAtValidationSummaryField(), "The specified email already exists");
     }
 
+    @Description("Register with password < 6")
     @Test
     public void Register_05_Register_With_Password_Less_Than_6_Charater() {
         log.info("Register 05 - Step 01: Enter invalid password to password textbox: '" + invalidPassword + "'");
@@ -129,6 +139,7 @@ public class RegisterTabTest extends BaseTest {
 
     }
 
+    @Description("Register with confirm password not match")
     @Test
     public void Register_06_Register_With_Confirm_Password_Not_Match() {
         log.info("Register 06 - Step 01: Enter password to password textbox: '" + password + "'");
@@ -144,7 +155,7 @@ public class RegisterTabTest extends BaseTest {
         Assert.assertEquals(registerPO.getErrorMessageAtConfirmPasswordField(), "The password and confirmation password do not match.");
     }
 
-    @AfterClass
+    @AfterClass(alwaysRun = true)
     public void afterMethod() {
         closeBrowserDriver();
     }

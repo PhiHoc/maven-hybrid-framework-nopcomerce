@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="Nopcommerce">
     <listeners>
-        <listener class-name="org.uncommons.reportng.HTMLReporter"/>
-        <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
-        <listener class-name="commons.ReportNGListener"/>
+<!--        <listener class-name="org.uncommons.reportng.HTMLReporter"/>-->
+<!--        <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>-->
+<!--        <listener class-name="reportConfig.ReportNGListener"/>-->
+        <listener class-name="reportConfig.AllureTestListener"/>
     </listeners>
 
     <test name = "Run on chrome" >
