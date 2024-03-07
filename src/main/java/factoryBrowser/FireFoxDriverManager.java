@@ -13,7 +13,7 @@ public class FireFoxDriverManager implements BrowserFactory {
     public WebDriver getBrowserDriver() {
         WebDriverManager.firefoxdriver().setup();
         FirefoxOptions options = new FirefoxOptions();
-
+        options.addArguments("--lang=en");
         return new FirefoxDriver(options);
     }
 }

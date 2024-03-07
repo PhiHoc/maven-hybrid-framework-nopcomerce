@@ -14,6 +14,7 @@ public class HeadlessFireFoxDriverManager implements BrowserFactory {
         WebDriverManager.firefoxdriver().setup();
         FirefoxOptions options = new FirefoxOptions();
         options.setHeadless(true);
+        options.addArguments("--lang=en");
         options.addArguments("window-size=1920x1080");
         return new FirefoxDriver(options);
     }

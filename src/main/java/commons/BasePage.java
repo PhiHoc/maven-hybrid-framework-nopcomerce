@@ -1,5 +1,7 @@
 package commons;
 
+import nopcomerce.pageObjects.RegisterPO;
+import nopcomerce.pageObjects.PageGeneratorManager;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.Color;
@@ -232,11 +234,11 @@ public class BasePage {
     }
 
     public String getElementText(String xpathLocator) {
-        return getElement(xpathLocator).getText();
+        return getElement(xpathLocator).getText().trim();
     }
 
     public String getElementText(String xpathLocator, String... dynamicValues) {
-        return getElement(xpathLocator, dynamicValues).getText();
+        return getElement(xpathLocator, dynamicValues).getText().trim();
     }
 
     public String getCssValue(String xpathLocator, String property) {
@@ -488,6 +490,18 @@ public class BasePage {
 
     public Set<Cookie> getAllCookies() {
         return driver.manage().getCookies();
+    }
+
+//    public RegisterPO clickToLoginLink() {
+//        waitForElementClickable(BasePageUI.LOGIN_LINK);
+//        clickToElement(BasePageUI.LOGIN_LINK);
+//        return PageGeneratorManager.getLoginPage(driver);
+//    }
+
+    public RegisterPO clickToRegisterLink() {
+        waitForElementClickable(BasePageUI.REGISTER_LINK);
+        clickToElement(BasePageUI.REGISTER_LINK);
+        return PageGeneratorManager.getRegisterPage(driver);
     }
 
     private long longTimeOut = GlobalConstants.getGlobalConstants().getLongTimeout();

@@ -4,9 +4,11 @@
 
     </listeners>
 
-    <test>
+    <test name = "Run on chrome" >
         <classes>
-            <class name=""></class>
+            <parameter name="browser" value="CHROME"/>
+            <parameter name="env" value="user"/>
+            <class name="com.nopcomerce.login.RegisterTabTest"></class>
         </classes>
     </test>
 </suite>

@@ -11,6 +11,7 @@ public class ChromeDriverManager implements BrowserFactory {
     public WebDriver getBrowserDriver() {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
+        options.addArguments("--lang=en");
 //        options.addArguments("--incognito");
         return new ChromeDriver(options);
     }

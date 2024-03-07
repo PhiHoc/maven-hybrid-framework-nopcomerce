@@ -11,6 +11,7 @@ public class HeadlessChromeDriverManager implements BrowserFactory {
     public WebDriver getBrowserDriver() {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
+        options.addArguments("--lang=en");
         options.addArguments("window-size=1920x1080");
         options.setHeadless(true);
         return new ChromeDriver(options);
