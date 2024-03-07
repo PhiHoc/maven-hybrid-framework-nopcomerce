@@ -29,6 +29,8 @@
         <allure.version>2.18.1</allure.version>
         <log4j.version>1.2.16</log4j.version>
         <reportng.version>1.1.4</reportng.version>
+        <lombok.version>1.18.12</lombok.version>
+        <javafaker.version>1.0.2</javafaker.version>
     </properties>
 
     <!-- Quản lí thư viện -->
@@ -140,6 +142,12 @@
         </dependency>
 
         <dependency>
+            <groupId>com.github.javafaker</groupId>
+            <artifactId>javafaker</artifactId>
+            <version>${javafaker.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.aeonbits.owner</groupId>
             <artifactId>owner</artifactId>
             <version>1.0.12</version>
@@ -148,7 +156,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.12</version>
+            <version>${lombok.version}</version>
             <scope>provided</scope>
         </dependency>
 
