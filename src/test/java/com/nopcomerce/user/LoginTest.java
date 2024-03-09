@@ -1,7 +1,7 @@
 package com.nopcomerce.user;
 
 import commons.BaseTest;
-import commons.GlobalConstants;
+import commons.CommonRegister;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import nopcomerce.pageObjects.HomePO;
@@ -14,34 +14,23 @@ import org.testng.annotations.*;
 import utilities.DataHelper;
 
 @Feature("Login Tests")
-public class LoginTabTest extends BaseTest {
+public class LoginTest extends BaseTest {
 
     @Parameters({"browser", "env"})
     @BeforeClass
     public void beforeClass(String browserName, String envName) {
         dataHelper = DataHelper.getDataHelper();
-        firstName = dataHelper.getFirtName();
-        lastName = dataHelper.getLastName();
         unRegisteredEmail = dataHelper.getEmail();
         invalidEmail = "auto!@#$%.com";
-        registeredEmail = dataHelper.getEmail();
-        validPassword = dataHelper.getPassword();
         invalidPassword = "123456";
+
+        registeredEmail = CommonRegister.email;
+        validPassword = CommonRegister.password;
 
         driver = getBrowserDriver(browserName, envName);
         homePO = PageGeneratorManager.getHomePage(driver);
 
-        log.info("Pre-condition 01 - Click to register link");
-        registerPO = homePO.clickToRegisterLink();
-
-        log.info("Pre-condition 02 - Register a valid account");
-        registerPO.registerValidAccount(firstName,lastName,registeredEmail,validPassword);
-
-        log.info("Pre-condition 03 - Open HomePage");
-        registerPO.openPageUrl(GlobalConstants.getGlobalConstants().getPortalPageUrl());
-        homePO = PageGeneratorManager.getHomePage(driver);
-
-        log.info("Pre-condition 04 - Open Login page");
+        log.info("Pre-condition - Open Login page");
         loginPO = homePO.clickToLoginLink();
     }
 

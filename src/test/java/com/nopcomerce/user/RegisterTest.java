@@ -14,7 +14,7 @@ import utilities.DataHelper;
 
 
 @Feature("Register Tests")
-public class RegisterTabTest extends BaseTest {
+public class RegisterTest extends BaseTest {
 
     @Parameters({"browser", "env"})
     @BeforeClass

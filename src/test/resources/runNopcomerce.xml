@@ -7,11 +7,17 @@
         <listener class-name="reportConfig.AllureTestListener"/>
     </listeners>
 
-    <test name = "Run on chrome" >
+    <parameter name="browser" value="CHROME"/>
+    <parameter name="env" value="user"/>
+
+    <test name = "Run on chrome" preserve-order="true">
         <classes>
-            <parameter name="browser" value="CHROME"/>
-            <parameter name="env" value="user"/>
-            <class name="com.nopcomerce.user.LoginTabTest"></class>
+            <class name="commons.CommonRegister"></class>
+            <class name="com.nopcomerce.user.MyAccountTest">
+                <methods>
+                    <include name="MyAccount_04_My_Product_Preview"></include>
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>

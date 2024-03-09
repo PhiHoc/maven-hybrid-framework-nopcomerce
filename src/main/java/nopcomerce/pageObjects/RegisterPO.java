@@ -77,6 +77,5 @@ public class RegisterPO extends BasePage {
         enterToTextBoxById("Password", password);
         enterToTextBoxById("ConfirmPassword", password);
         clickToRegisterButton();
-        Assert.assertEquals(getRegisterSuccessMessage(), "Your registration completed");
     }
 }

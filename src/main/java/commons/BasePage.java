@@ -1,8 +1,6 @@
 package commons;
 
-import nopcomerce.pageObjects.LoginPO;
-import nopcomerce.pageObjects.RegisterPO;
-import nopcomerce.pageObjects.PageGeneratorManager;
+import nopcomerce.pageObjects.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.Color;
@@ -505,10 +503,10 @@ public class BasePage {
         return PageGeneratorManager.getRegisterPage(driver);
     }
 
-    public RegisterPO clickToLogoutLink() {
+    public HomePO clickToLogoutLink() {
         waitForElementClickable(BasePageUI.LOGOUT_LINK);
         clickToElement(BasePageUI.LOGOUT_LINK);
-        return PageGeneratorManager.getRegisterPage(driver);
+        return PageGeneratorManager.getHomePage(driver);
     }
 
     public boolean isMyAccountLinkDisplayed(){
@@ -516,7 +514,13 @@ public class BasePage {
         return isElementDisplayed(BasePageUI.MY_ACCOUNT_LINK);
     }
 
+    public MyAccountPO clickToMyAccountLink() {
+        waitForElementClickable(BasePageUI.MY_ACCOUNT_LINK);
+        clickToElement(BasePageUI.MY_ACCOUNT_LINK);
+        return PageGeneratorManager.getMyAccountPage(driver);
+    }
     private long longTimeOut = GlobalConstants.getGlobalConstants().getLongTimeout();
     private long shortTimeOut = GlobalConstants.getGlobalConstants().getShortTimeout();
+
     private WebDriver driver;
 }
