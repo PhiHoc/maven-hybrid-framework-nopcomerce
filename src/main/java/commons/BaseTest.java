@@ -80,6 +80,14 @@ public class BaseTest {
         return rand.nextInt(99999);
     }
 
+    public void sleepInSecond(long second) {
+        try {
+            Thread.sleep(second*1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     protected boolean verifyTrue(boolean condition) {
         boolean pass = true;
         try {

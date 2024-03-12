@@ -1,4 +1,4 @@
-package nopcomerce.PageUIs;
+package nopcomerce.PageUIs.user;
 
 public class CustomerInfoPUI {
     public static final String DYNAMIC_TEXTBOX_BY_ID = "//input[@id='%s']";

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="Nopcommerce">
+<suite name="Run all nopcomerce Test">
     <listeners>
 <!--        <listener class-name="org.uncommons.reportng.HTMLReporter"/>-->
 <!--        <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>-->
@@ -10,13 +10,19 @@
     <parameter name="browser" value="CHROME"/>
     <parameter name="env" value="user"/>
 
+<!--    <groups>-->
+<!--        <run>-->
+<!--            <include name =""></include>-->
+<!--        </run>-->
+<!--    </groups>-->
+
     <test name = "Run on chrome" preserve-order="true">
         <classes>
             <class name="commons.CommonRegister"></class>
-            <class name="com.nopcomerce.user.MyAccountTest">
-                <methods>
-                    <include name="MyAccount_04_My_Product_Preview"></include>
-                </methods>
+            <class name="com.nopcomerce.user.OrderTest">
+<!--                <methods>-->
+<!--                    <include name="WishlistCompareRecentView_05_Recently_Viewed_Product"></include>-->
+<!--                </methods>-->
             </class>
         </classes>
     </test>

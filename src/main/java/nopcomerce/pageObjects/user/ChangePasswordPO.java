@@ -1,7 +1,7 @@
-package nopcomerce.pageObjects;
+package nopcomerce.pageObjects.user;
 
 import io.qameta.allure.Step;
-import nopcomerce.PageUIs.ChangePasswordPUI;
+import nopcomerce.PageUIs.user.ChangePasswordPUI;
 import org.openqa.selenium.WebDriver;
 
 public class ChangePasswordPO extends MyAccountPO {

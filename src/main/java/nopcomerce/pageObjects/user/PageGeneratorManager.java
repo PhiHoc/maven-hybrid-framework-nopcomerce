@@ -1,5 +1,6 @@
-package nopcomerce.pageObjects;
+package nopcomerce.pageObjects.user;
 
+import commons.BasePage;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 
@@ -44,5 +45,25 @@ public class PageGeneratorManager {
     @Step("Open My Product Preview Page")
     public static MyProductReviewPO getMyProductReviewPage(WebDriver driver) {
         return new MyProductReviewPO(driver);
+    }
+
+    @Step("Open Search Page")
+    public static SearchPO getSearchPage(WebDriver driver) {
+        return new SearchPO(driver);
+    }
+
+    @Step("Open WishList Page")
+    public static WishListPO getWishListPage(WebDriver driver) {
+        return new WishListPO(driver);
+    }
+
+    @Step("Open ShoppingCart Page")
+    public static ShoppingCartPO getShoppingCartPage(WebDriver driver) {
+        return new ShoppingCartPO(driver);
+    }
+
+    @Step("Open Compare Product Page")
+    public static CompareProductPO getCompareProductPage(WebDriver driver) {
+        return new CompareProductPO(driver);
     }
 }

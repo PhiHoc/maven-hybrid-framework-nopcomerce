@@ -1,6 +1,7 @@
 package commons;
 
-import nopcomerce.pageObjects.*;
+import io.qameta.allure.Step;
+import nopcomerce.pageObjects.user.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.Color;
@@ -274,14 +275,14 @@ public class BasePage {
         }
     }
 
-    public void unCheckToCheckBox(String xpathLocator) {
+    public void uncheckToCheckBox(String xpathLocator) {
         WebElement element = getElement(xpathLocator);
         if (element.isSelected()) {
             element.click();
         }
     }
 
-    public void unCheckToCheckBox(String xpathLocator, String... dynamicValues) {
+    public void uncheckToCheckBox(String xpathLocator, String... dynamicValues) {
         WebElement element = getElement(xpathLocator, dynamicValues);
         if (element.isSelected()) {
             element.click();
@@ -460,12 +461,12 @@ public class BasePage {
                 .until(ExpectedConditions.visibilityOfAllElementsLocatedBy(getByXpath(xpathLocator, dynamicValues)));
     }
 
-    public void waitForAllElementInVisible(String xpathLocator) {
+    public void waitForAllElementInvisible(String xpathLocator) {
         WebDriverWait explicitWait = new WebDriverWait(driver, longTimeOut);
         explicitWait.until(ExpectedConditions.invisibilityOfAllElements(getElements(xpathLocator)));
     }
 
-    public void waitForAllElementInVisible(String xpathLocator, String... dynamicValues) {
+    public void waitForAllElementInvisible(String xpathLocator, String... dynamicValues) {
         WebDriverWait explicitWait = new WebDriverWait(driver, longTimeOut);
         explicitWait
                 .until(ExpectedConditions.invisibilityOfAllElements(getElements(xpathLocator, dynamicValues)));
@@ -480,7 +481,6 @@ public class BasePage {
         WebDriverWait explicitWait = new WebDriverWait(driver, longTimeOut);
         explicitWait.until(ExpectedConditions.elementToBeClickable(getByXpath(xpathLocator, dynamicValues)));
     }
-
     public void setCookie(Set<Cookie> cookies) {
         for (Cookie cookie : cookies) {
             driver.manage().addCookie(cookie);
@@ -491,36 +491,78 @@ public class BasePage {
         return driver.manage().getCookies();
     }
 
+    @Step("Click to Shopping cart link")
+    public ShoppingCartPO clickToShoppingCartLink(){
+        waitForElementClickable(BasePageUI.SHOPPING_CART_LINK);
+        clickToElement(BasePageUI.SHOPPING_CART_LINK);
+        return PageGeneratorManager.getShoppingCartPage(driver);
+    }
+
+    @Step("Click to login link")
     public LoginPO clickToLoginLink() {
         waitForElementClickable(BasePageUI.LOGIN_LINK);
         clickToElement(BasePageUI.LOGIN_LINK);
         return PageGeneratorManager.getLoginPage(driver);
     }
 
+    @Step("Click to register link")
     public RegisterPO clickToRegisterLink() {
         waitForElementClickable(BasePageUI.REGISTER_LINK);
         clickToElement(BasePageUI.REGISTER_LINK);
         return PageGeneratorManager.getRegisterPage(driver);
     }
 
+    @Step("Click to logout link")
     public HomePO clickToLogoutLink() {
         waitForElementClickable(BasePageUI.LOGOUT_LINK);
         clickToElement(BasePageUI.LOGOUT_LINK);
         return PageGeneratorManager.getHomePage(driver);
     }
 
+    @Step("Verify is my account link displayed")
     public boolean isMyAccountLinkDisplayed(){
         waitForElementVisible(BasePageUI.MY_ACCOUNT_LINK);
         return isElementDisplayed(BasePageUI.MY_ACCOUNT_LINK);
     }
 
+    @Step("Click to My account link")
     public MyAccountPO clickToMyAccountLink() {
         waitForElementClickable(BasePageUI.MY_ACCOUNT_LINK);
         clickToElement(BasePageUI.MY_ACCOUNT_LINK);
         return PageGeneratorManager.getMyAccountPage(driver);
     }
-    private long longTimeOut = GlobalConstants.getGlobalConstants().getLongTimeout();
-    private long shortTimeOut = GlobalConstants.getGlobalConstants().getShortTimeout();
+    @Step("Click to Wishlist link")
+    public WishListPO clickToWishListLink() {
+        waitForElementClickable(BasePageUI.MY_WISHLIST_LINK);
+        clickToElement(BasePageUI.MY_WISHLIST_LINK);
+        return PageGeneratorManager.getWishListPage(driver);
+    }
+
+    @Step("Click to home page logo link")
+    public HomePO clickToHomePageLogoLink(){
+        waitForElementClickable(BasePageUI.HOME_PAGE_LOGO_LINK);
+        clickToElement(BasePageUI.HOME_PAGE_LOGO_LINK);
+        return PageGeneratorManager.getHomePage(driver);
+    }
+
+    @Step("Click to Footer link: {0}")
+    public BasePage clickToFooterLinkByName(String name){
+        waitForElementClickable(BasePageUI.DYNAMIC_FOOTER_LINK_BY_NAME,name);
+        clickToElement(BasePageUI.DYNAMIC_FOOTER_LINK_BY_NAME,name);
+
+        switch (name) {
+            case "Search":
+                return PageGeneratorManager.getSearchPage(driver);
+            case "Shopping cart":
+                return PageGeneratorManager.getShoppingCartPage(driver);
+            case "Compare products list":
+                return PageGeneratorManager.getCompareProductPage(driver);
+            default:
+                return null;
+        }
+    }
+    private final long longTimeOut = GlobalConstants.getGlobalConstants().getLongTimeout();
+    private final long shortTimeOut = GlobalConstants.getGlobalConstants().getShortTimeout();
 
     private WebDriver driver;
 }

@@ -4,14 +4,14 @@ import commons.BaseTest;
 import commons.CommonRegister;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
-import nopcomerce.pageObjects.*;
+import nopcomerce.pageObjects.user.*;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import testData.com.nopcomerce.UserData;
+import com.nopcomerce.data.UserData;
 import utilities.DataHelper;
 
 @Feature("My account tests")
@@ -36,13 +36,11 @@ public class MyAccountTest extends BaseTest {
         loginPO = homePO.clickToLoginLink();
 
         log.info("Precodition Step 02 - Login with a valid account");
-        loginPO.enterToEmailTextBox(email);
-        loginPO.enterToPasswordTextBox(password);
-        loginPO.clickToLoginButton();
-        homePO = PageGeneratorManager.getHomePage(driver);
+        loginPO.loginToAccount(email,password);
 
         log.info("Precodition Step 03 - Verify 'My account' link displayed");
         Assert.assertTrue(homePO.isMyAccountLinkDisplayed());
+        homePO = PageGeneratorManager.getHomePage(driver);
     }
 
     @Description("Update customer info and verify")
@@ -214,7 +212,7 @@ public class MyAccountTest extends BaseTest {
         homePO.enterToReviewTextArea(reviewText);
 
         log.info("MyAccount 04 - Step 05: Click 'Submit review' button");
-        homePO.ckickToSubmitReviewButton();
+        homePO.clickToSubmitReviewButton();
 
         log.info("MyAccount 04 - Step 06: Verify submit success message displayed");
         Assert.assertEquals(homePO.getSubmitReviewResult(),"Product review is successfully added.");

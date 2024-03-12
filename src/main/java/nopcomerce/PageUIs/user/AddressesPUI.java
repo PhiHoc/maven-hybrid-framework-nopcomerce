@@ -1,4 +1,4 @@
-package nopcomerce.PageUIs;
+package nopcomerce.PageUIs.user;
 
 public class AddressesPUI {
     public static final  String ADD_NEW_ADDRESS_BUTTON = "//button[@class='button-1 add-address-button']";

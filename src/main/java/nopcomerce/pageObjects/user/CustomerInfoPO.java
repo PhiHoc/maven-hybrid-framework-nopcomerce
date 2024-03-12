@@ -1,7 +1,7 @@
-package nopcomerce.pageObjects;
+package nopcomerce.pageObjects.user;
 
 import io.qameta.allure.Step;
-import nopcomerce.PageUIs.CustomerInfoPUI;
+import nopcomerce.PageUIs.user.CustomerInfoPUI;
 import org.openqa.selenium.WebDriver;
 
 public class CustomerInfoPO extends MyAccountPO{

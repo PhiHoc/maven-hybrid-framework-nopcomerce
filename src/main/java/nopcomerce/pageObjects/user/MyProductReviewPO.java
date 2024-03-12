@@ -1,6 +1,6 @@
-package nopcomerce.pageObjects;
+package nopcomerce.pageObjects.user;
 
-import nopcomerce.PageUIs.MyProductReviewPUI;
+import nopcomerce.PageUIs.user.MyProductReviewPUI;
 import org.openqa.selenium.WebDriver;
 
 public class MyProductReviewPO extends MyAccountPO{

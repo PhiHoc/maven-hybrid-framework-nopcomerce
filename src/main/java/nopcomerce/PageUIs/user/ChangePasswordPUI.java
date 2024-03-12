@@ -1,4 +1,4 @@
-package nopcomerce.PageUIs;
+package nopcomerce.PageUIs.user;
 
 public class ChangePasswordPUI {
     public static final String OLD_PASSWORD_TEXTBOX = "//input[@id='OldPassword']";

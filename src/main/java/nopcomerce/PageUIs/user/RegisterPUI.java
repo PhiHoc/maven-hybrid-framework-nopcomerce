@@ -1,4 +1,4 @@
-package nopcomerce.PageUIs;
+package nopcomerce.PageUIs.user;
 
 public class RegisterPUI {
     public static final String REGISTER_BUTTON = "//button[@id='register-button']";

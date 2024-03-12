@@ -1,4 +1,4 @@
-package nopcomerce.PageUIs;
+package nopcomerce.PageUIs.user;
 
 public class LoginPUI {
     public static final String VALIDATION_SUMMARY_ERROR_MESSAGE = "//div[contains(@class,'message-error')]";

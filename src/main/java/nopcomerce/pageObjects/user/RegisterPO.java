@@ -1,14 +1,9 @@
-package nopcomerce.pageObjects;
+package nopcomerce.pageObjects.user;
 
 import commons.BasePage;
 import io.qameta.allure.Step;
-import net.bytebuddy.asm.Advice;
-import nopcomerce.PageUIs.RegisterPUI;
+import nopcomerce.PageUIs.user.RegisterPUI;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebDriverInfo;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 
 public class RegisterPO extends BasePage {
     public RegisterPO(WebDriver driver){

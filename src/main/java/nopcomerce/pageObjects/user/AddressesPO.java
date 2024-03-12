@@ -1,7 +1,7 @@
-package nopcomerce.pageObjects;
+package nopcomerce.pageObjects.user;
 
 import io.qameta.allure.Step;
-import nopcomerce.PageUIs.AddressesPUI;
+import nopcomerce.PageUIs.user.AddressesPUI;
 import org.openqa.selenium.WebDriver;
 
 public class AddressesPO extends MyAccountPO {

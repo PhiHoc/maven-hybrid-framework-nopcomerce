@@ -1,8 +1,8 @@
-package nopcomerce.pageObjects;
+package nopcomerce.pageObjects.user;
 
 import commons.BasePage;
 import io.qameta.allure.Step;
-import nopcomerce.PageUIs.LoginPUI;
+import nopcomerce.PageUIs.user.LoginPUI;
 import org.openqa.selenium.WebDriver;
 
 public class LoginPO extends BasePage {
@@ -38,6 +38,13 @@ public class LoginPO extends BasePage {
     public void enterToPasswordTextBox(String value) {
         waitForElementVisible(LoginPUI.PASSWORD_TEXTBOT);
         sendKeysToElement(LoginPUI.PASSWORD_TEXTBOT,value);
+    }
+
+    @Step("Login with email: '{0}' - password: '{1}'")
+    public void loginToAccount(String email, String password){
+        enterToEmailTextBox(email);
+        enterToPasswordTextBox(password);
+        clickToLoginButton();
     }
 
 }
