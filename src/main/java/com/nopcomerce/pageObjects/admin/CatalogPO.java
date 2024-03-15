@@ -1,8 +1,8 @@
 package com.nopcomerce.pageObjects.admin;
 
-import com.nopcomerce.PageUIs.admin.AdminHomePUI;
 import com.nopcomerce.PageUIs.admin.CatalogPUI;
 import commons.BaseComponent;
+import commons.BaseComponentUI;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 
@@ -32,5 +32,11 @@ public class CatalogPO extends BaseComponent {
     public void clickToSkuGoButon() {
         waitForElementClickable(CatalogPUI.SKU_GO_BUTTON);
         clickToElement(CatalogPUI.SKU_GO_BUTTON);
+    }
+
+    @Step("Verify data at row '{0}'")
+    public String getRowDataByIndex(String rowIndex) {
+        waitForElementVisible(CatalogPUI.DYNAMIC_PRODUCT_ROW_TABLE_INFO_BY_INDEX,rowIndex);
+        return getElementText(CatalogPUI.DYNAMIC_PRODUCT_ROW_TABLE_INFO_BY_INDEX,rowIndex);
     }
 }

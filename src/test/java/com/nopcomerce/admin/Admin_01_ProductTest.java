@@ -1,20 +1,21 @@
 package com.nopcomerce.admin;
 
 import com.nopcomerce.data.AdminData;
-import com.nopcomerce.data.UserData;
 import com.nopcomerce.pageObjects.admin.AdminDashboardPO;
 import com.nopcomerce.pageObjects.admin.AdminLoginPO;
 import com.nopcomerce.pageObjects.admin.CatalogPO;
-import com.nopcomerce.pageObjects.admin.CustomersPO;
 import commons.BaseTest;
 import commons.PageGeneratorManager;
 import io.qameta.allure.Description;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
 import utilities.DataHelper;
 
-public class AdminTest extends BaseTest {
+public class Admin_01_ProductTest extends BaseTest {
     @Parameters({"browser", "env"})
     @BeforeClass(alwaysRun = true)
     public void beforeClass(String browserName, String envName) {
@@ -22,6 +23,7 @@ public class AdminTest extends BaseTest {
         productSku = "LE_IC_600";
         productPrice = "500";
         productQuantity = "10000";
+        adminComment = "Add new customer (Guest)";
         dataHelper = DataHelper.getDataHelper();
         email = dataHelper.getEmail();
 
@@ -249,124 +251,6 @@ public class AdminTest extends BaseTest {
         adminDashboardPO = catalogPO.clickToDashboardLink();
     }
 
-    @Description("Create New customer")
-    @Test(groups = "customer")
-    public void Admin_07_Create_New_Customer() {
-        log.info("Admin 07 - Step 01: Click to open 'Customers' link at side bar");
-        adminDashboardPO.clickToSideBarLinkByName("Customers");
-
-        log.info("Admin 07 - Step 02: Click to open 'Customers' sub link at side bar");
-        adminDashboardPO.clickToSideBarSubLinkByName(" Customers");
-        customersPO = PageGeneratorManager.getCustomersPage(driver);
-
-        log.info("Admin 07 - Step 04: Click to 'Add new' button");
-        adminDashboardPO.clickToAddNewButton();
-
-        log.info("Admin 07 - Step 05: Enter to 'Email' textbox with value: '" + email + "'");
-        adminDashboardPO.enterToTextboxByLabel("Email", email);
-
-        log.info("Admin 07 - Step 06: Enter to 'Password' textbox with value: '" + UserData.PASSWORD + "'");
-        adminDashboardPO.enterToTextboxByLabel("Password", UserData.PASSWORD);
-
-        log.info("Admin 07 - Step 07: Enter to 'First name' textbox with value: '" + UserData.FIRST_NAME + "'");
-        adminDashboardPO.enterToTextboxByLabel("First name", UserData.FIRST_NAME);
-
-        log.info("Admin 07 - Step 08: Enter to 'Last name' textbox with value: '" + UserData.LAST_NAME + "'");
-        adminDashboardPO.enterToTextboxByLabel("Last name", UserData.LAST_NAME);
-
-        log.info("Admin 07 - Step 09: Enter to 'Date of birth' textbox with value: '" + UserData.DATE_OF_BIRTH + "'");
-        adminDashboardPO.enterToTextboxByLabel("Date of birth", UserData.DATE_OF_BIRTH);
-
-        log.info("Admin 07 - Step 10: Enter to 'Company' textbox with value: '" + UserData.COMPANY_NAME + "'");
-        adminDashboardPO.enterToTextboxByLabel("Company name", UserData.COMPANY_NAME);
-
-        log.info("Admin 07 - Step 11: Enter to 'Admin comment' textbox");
-        adminDashboardPO.enterToTextAreaByLabel("Admin comment", "Add new customer (Guest)");
-
-        log.info("Admin 07 - Step 12: Check to 'Male' radio");
-        adminDashboardPO.checkToMaleRadio();
-
-        log.info("Admin 07 - Step 13: Check to 'Active' checkbox");
-        adminDashboardPO.checkToActiveCheckbox();
-
-        log.info("Admin 07 - Step 14: Delete all role in 'Customer role' dropdown");
-        adminDashboardPO.deleteAllRoleInCustomerRoleDropdown();
-
-        log.info("Admin 07 - Step 15: Select to 'Customer role' dropdown with value 'Guests'");
-        adminDashboardPO.selectToCustomerRoleDropdown("Guests");
-
-        log.info("Admin 07 - Step 16: Click to 'Save And Continue' button");
-        adminDashboardPO.clickToSaveAndContinueButton();
-
-        log.info("Admin 07 - Step 17: Verify add customer success message");
-        Assert.assertTrue(adminDashboardPO.getAddCustomerSuccessMessage().contains("The new customer has been added successfully."));
-
-        log.info("Admin 07 - Step 18: Verify data");
-        Assert.assertEquals(adminDashboardPO.getTextboxAttributeValueByLabel("Email", "value"), email);
-        Assert.assertEquals(adminDashboardPO.getTextboxAttributeValueByLabel("First name", "value"), UserData.FIRST_NAME);
-        Assert.assertEquals(adminDashboardPO.getTextboxAttributeValueByLabel("Last name", "value"), UserData.LAST_NAME);
-        Assert.assertTrue(adminDashboardPO.isMaleGenderRadioChecked());
-        Assert.assertEquals(adminDashboardPO.getTextboxAttributeValueByLabel("Date of birth", "value"), UserData.DATE_OF_BIRTH);
-        Assert.assertEquals(adminDashboardPO.getSelectedValueAtCustomerRole(), "Guests");
-        Assert.assertTrue(adminDashboardPO.isActiveCheckboxChecked());
-        Assert.assertEquals(adminDashboardPO.getTextAreaTextByLabel("Admin comment"), "Add new customer (Guest)");
-
-        log.info("Admin 07 - Step 19: Click 'Back to Customer List' link");
-        adminDashboardPO.clickToBackToCustomerListLink();
-
-        log.info("Admin 07 - Step 20: Delete all role in 'Customer role' dropdown");
-        adminDashboardPO.deleteAllRoleInCustomerRoleDropdown();
-
-        log.info("Admin 07 - Step 21: Select to 'Customer role' dropdown with value 'Guests'");
-        adminDashboardPO.selectToCustomerRoleDropdown("Guests");
-
-        log.info("Admin 07 - Step 22: Click to 'Search' button");
-        adminDashboardPO.clickToSearchCustomerButton();
-
-        log.info("Admin 07 - Step 23: Wait for 'Ajax loading' icon undisplayed");
-        adminDashboardPO.waitForAjaxLoadingIconUndisplayed();
-
-        log.info("Admin 07 - Step 24: Verify Customer name appear");
-        Assert.assertTrue(adminDashboardPO.getColumnDataByColumnName("Name").contains(UserData.FULL_NAME));
-
-        log.info("Admin 07 - Step 03: Click to close 'Customers' link at side bar");
-        adminDashboardPO.clickToSideBarLinkByName("Customers");
-    }
-
-    @Description("Search Customer with email")
-    @Test(groups = "customer")
-    public void Admin_08_Search_Customer_With_Email() {
-        log.info("Admin 08 - Step 01: Click to open 'Customers' link at side bar");
-        adminDashboardPO.clickToSideBarLinkByName("Customers");
-
-        log.info("Admin 08 - Step 02: Click to open 'Customers' sub link at side bar");
-        adminDashboardPO.clickToSideBarSubLinkByName(" Customers");
-
-        log.info("Admin 08 - Step 04: Enter to 'Email' textbox with value: '" + email + "'");
-        adminDashboardPO.enterToTextboxByLabel("Email", email);
-
-        log.info("Admin 08 - Step 05: Delete all role in 'Customer role' dropdown");
-        adminDashboardPO.deleteAllRoleInCustomerRoleDropdown();
-
-        log.info("Admin 08 - Step 06: Select to 'Customer role' dropdown with value 'Guests'");
-        adminDashboardPO.selectToCustomerRoleDropdown("Guests");
-
-        log.info("Admin 08 - Step 07: Click to 'Search' button");
-        adminDashboardPO.clickToSearchCustomerButton();
-
-        log.info("Admin 08 - Step 06: Wait for 'Ajax loading' icon undisplayed");
-        adminDashboardPO.waitForAjaxLoadingIconUndisplayed();
-
-        log.info("Admin 08 - Step 07: Verify only 1 Customer info appear");
-        Assert.assertEquals(adminDashboardPO.getNumberOfCustomerInCustomerTable(), 1);
-
-        log.info("Admin 08 - Step 08: Verify Customer name appear");
-        Assert.assertEquals(adminDashboardPO.getTableDataByRowIndexAndColumnName("1", "Name"), UserData.FULL_NAME);
-
-        log.info("Admin 08 - Step 03: Click to close 'Customers' link at side bar");
-        adminDashboardPO.clickToSideBarLinkByName("Customers");
-    }
-
     @AfterClass(alwaysRun = true)
     public void afterClass() {
         closeBrowserDriver();
@@ -375,8 +259,7 @@ public class AdminTest extends BaseTest {
     private WebDriver driver;
     private AdminLoginPO adminLoginPO;
     private AdminDashboardPO adminDashboardPO;
-    private String productName, productSku, productPrice, productQuantity, email;
+    private String productName, productSku, productPrice, productQuantity, email,adminComment;
     private DataHelper dataHelper;
     private CatalogPO catalogPO;
-    private CustomersPO customersPO;
 }

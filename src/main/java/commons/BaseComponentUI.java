@@ -23,9 +23,11 @@ public class BaseComponentUI {
     public static final String LOG_OUT_LINK = "//a[text()='Logout']";
     public static final String AJAX_BUSY_LOADING = "//div[@id='ajaxBusy']";
     public static final String DYNAMIC_PRECEDING_HEADER_COLUMN_BY_NAME = "//thead//th[text()='%s']//preceding-sibling::th";
-    public static final String DYNAMIC_TBODY_INFO_BY_ROW_AND_COLUMN_INDEX = "//tbody//tr[%s]//td[%s]";
-    public static final String DYNAMIC_ROW_TABLE_INFO_BY_INDEX = "//tr[@class='odd' or @class = 'even'][%s]";
+    public static final String DYNAMIC_CELL_INFO_BY_ROW_AND_COLUMN_INDEX = "//tbody//tr[%s]//td[%s]";
+    public static final String DYNAMIC_BUTTON_BY_ROW_AND_COLUMN_INDEX = "//tbody//tr[%s]//td[%s]//a";
     public static final String PAGE_HEADER = "//div[@class='content-header clearfix']//h1";
     public static final String DASHBOARD_LINK = "//a[@class='nav-link']//p[contains(text(),'Dashboard')]";
+    public static final String DYNAMIC_TEXTAREA_BY_LABEL = "//label[text()='%s']//ancestor::div[@class='form-group row']//textarea";
+    public static final String DYNAMIC_COLUMN_TABLE_INFO_BY_INDEX = "//tbody//td[%s]";
 
 }

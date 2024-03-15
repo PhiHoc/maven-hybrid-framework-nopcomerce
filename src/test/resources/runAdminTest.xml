@@ -13,15 +13,15 @@
 
         <groups>
             <run>
-                <include name ="customer"/>
+                <include name ="address"/>
             </run>
         </groups>
 
         <classes>
-            <class name="com.nopcomerce.admin.AdminTest"/>
-<!--            <methods>-->
-<!--                <include name="Admin_06_Go_Directly_To_Product_SKU"></include>-->
-<!--            </methods>-->
+            <class name="com.nopcomerce.admin.Admin_02_CustomerTest"/>
+            <methods>
+<!--                <include name="Customer_01_Create_New_Customer"></include>-->
+            </methods>
         </classes>
     </test>
 </suite>

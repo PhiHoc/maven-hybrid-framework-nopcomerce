@@ -4,6 +4,9 @@ import com.nopcomerce.pageObjects.admin.AdminDashboardPO;
 import com.nopcomerce.pageObjects.user.*;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 public class BaseComponent extends BasePage{
 
@@ -125,17 +128,23 @@ public class BaseComponent extends BasePage{
         waitForElementInvisible(BaseComponentUI.AJAX_BUSY_LOADING);
     }
 
+    /**
+     * Get cell data by row index and column name
+     * @param rowIndex
+     * @param columnName
+     * @return
+     */
     @Step("Verify data at column '{1}', row number '{0}'")
     public String getTableDataByRowIndexAndColumnName(String rowIndex, String columnName) {
-        waitForAllElementVisible(BaseComponentUI.DYNAMIC_PRECEDING_HEADER_COLUMN_BY_NAME,columnName);
         String columnIndex = String.valueOf(getElementsSize(BaseComponentUI.DYNAMIC_PRECEDING_HEADER_COLUMN_BY_NAME,columnName)+1);
-        return getElementText(BaseComponentUI.DYNAMIC_TBODY_INFO_BY_ROW_AND_COLUMN_INDEX,rowIndex,columnIndex);
+        return getElementText(BaseComponentUI.DYNAMIC_CELL_INFO_BY_ROW_AND_COLUMN_INDEX,rowIndex,columnIndex);
     }
 
-    @Step("Verify data at row '{0}'")
-    public String getRowDataByIndex(String rowIndex) {
-        waitForElementVisible(BaseComponentUI.DYNAMIC_ROW_TABLE_INFO_BY_INDEX,rowIndex);
-        return getElementText(BaseComponentUI.DYNAMIC_ROW_TABLE_INFO_BY_INDEX,rowIndex);
+    @Step("Click button at column '{1}', row number '{0}'")
+    public void clickTableButtonAtRowIndexAndColumnName(String rowIndex, String columnName) {
+        waitForAllElementVisible(BaseComponentUI.DYNAMIC_PRECEDING_HEADER_COLUMN_BY_NAME,columnName);
+        String columnIndex = String.valueOf(getElementsSize(BaseComponentUI.DYNAMIC_PRECEDING_HEADER_COLUMN_BY_NAME,columnName)+1);
+        clickToElement(BaseComponentUI.DYNAMIC_BUTTON_BY_ROW_AND_COLUMN_INDEX,rowIndex,columnIndex);
     }
 
     @Step("Verify attribute '{1}' of textbox '{0}'")
@@ -150,9 +159,38 @@ public class BaseComponent extends BasePage{
         return getElementText(BaseComponentUI.PAGE_HEADER);
     }
 
+    @Step("Click to 'Dashboard' link")
     public AdminDashboardPO clickToDashboardLink() {
         waitForElementClickable(BaseComponentUI.DASHBOARD_LINK);
         clickToElement(BaseComponentUI.DASHBOARD_LINK);
         return PageGeneratorManager.getAdminDashboardPage(driver);
+    }
+
+    @Step("Enter to text area '{0}' with value '{1}'")
+    public void enterToTextAreaByLabel(String labelName, String value) {
+        waitForElementVisible(BaseComponentUI.DYNAMIC_TEXTAREA_BY_LABEL,labelName);
+        sendKeysToElement(BaseComponentUI.DYNAMIC_TEXTAREA_BY_LABEL,value,labelName);
+    }
+
+    @Step("Verify text of text area '{0}'")
+    public String getTextAreaTextByLabel(String label) {
+        waitForElementVisible(BaseComponentUI.DYNAMIC_TEXTAREA_BY_LABEL,label);
+        return getElementText(BaseComponentUI.DYNAMIC_TEXTAREA_BY_LABEL,label);
+    }
+
+    /**
+     * Get all data in a column
+     * @param columnName
+     * @return
+     */
+    public String getColumnDataByColumnName(String columnName) {
+        String columnTextData = "";
+        waitForElementVisible(BaseComponentUI.DYNAMIC_PRECEDING_HEADER_COLUMN_BY_NAME,columnName);
+        String columnIndex = String.valueOf(getElementsSize(BaseComponentUI.DYNAMIC_PRECEDING_HEADER_COLUMN_BY_NAME,columnName)+1);
+        List<WebElement> columnElements = getElements(BaseComponentUI.DYNAMIC_COLUMN_TABLE_INFO_BY_INDEX,columnIndex);
+        for(WebElement element :columnElements){
+            columnTextData += " " + element.getText();
+        }
+        return columnTextData;
     }
 }
