@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Run all User Test">
+    <listeners>
+        <!--        <listener class-name="org.uncommons.reportng.HTMLReporter"/>-->
+        <!--        <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>-->
+        <!--        <listener class-name="reportConfig.ReportNGListener"/>-->
+        <listener class-name="reportConfig.AllureTestListener"/>
+    </listeners>
+
+    <!--    <groups>-->
+    <!--        <run>-->
+    <!--            <include name =""></include>-->
+    <!--        </run>-->
+    <!--    </groups>-->
+
+    <test name="Run on chrome" preserve-order="true">
+        <parameter name="browser" value="CHROME"/>
+        <parameter name="env" value="user"/>
+        <classes>
+            <class name="commons.CommonRegister"/>
+            <class name="com.nopcomerce.user.RegisterTest"/>
+            <class name="com.nopcomerce.user.LoginTest"/>
+            <class name="com.nopcomerce.user.SortDisplayPagingTest"/>
+            <class name="com.nopcomerce.user.SearchTest"/>
+            <class name="com.nopcomerce.user.WishlistCompareRecentViewTest"/>
+            <class name="com.nopcomerce.user.ShoppingCartTest"/>
+            <class name="com.nopcomerce.user.OrderTest"/>
+        </classes>
+    </test>
+</suite>

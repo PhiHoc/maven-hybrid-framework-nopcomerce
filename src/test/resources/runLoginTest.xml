@@ -9,6 +9,7 @@
 
     <test name = "Run on chrome" preserve-order="true">
         <classes>
+            <class name="commons.CommonRegister"></class>
             <class name="com.nopcomerce.user.LoginTest">
             </class>
         </classes>

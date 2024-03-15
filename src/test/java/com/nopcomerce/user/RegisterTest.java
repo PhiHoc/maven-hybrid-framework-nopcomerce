@@ -4,9 +4,9 @@ import commons.BaseTest;
 import commons.GlobalConstants;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
-import nopcomerce.pageObjects.user.HomePO;
-import nopcomerce.pageObjects.user.PageGeneratorManager;
-import nopcomerce.pageObjects.user.RegisterPO;
+import com.nopcomerce.pageObjects.user.HomePO;
+import commons.PageGeneratorManager;
+import com.nopcomerce.pageObjects.user.RegisterPO;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
@@ -94,7 +94,8 @@ public class RegisterTest extends BaseTest {
         Assert.assertEquals(registerPO.getRegisterSuccessMessage(), "Your registration completed");
 
         log.info("Register 03 - Step 08: Open home page link");
-        registerPO.openPageUrl(GlobalConstants.getGlobalConstants().getPortalPageUrl());
+        registerPO.logoutByUrl();
+
         homePO = PageGeneratorManager.getHomePage(driver);
     }
 

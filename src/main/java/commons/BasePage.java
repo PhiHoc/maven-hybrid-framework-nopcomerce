@@ -1,7 +1,7 @@
 package commons;
 
+import com.nopcomerce.pageObjects.user.*;
 import io.qameta.allure.Step;
-import nopcomerce.pageObjects.user.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.Color;
@@ -106,16 +106,16 @@ public class BasePage {
         }
     }
 
-    private By getByXpath(String xpathLocator) {
+    public By getByXpath(String xpathLocator) {
         return By.xpath(xpathLocator);
     }
 
-    private By getByXpath(String locator, String... dynamicValues) {
+    public By getByXpath(String locator, String... dynamicValues) {
         locator = String.format(locator, (Object[]) dynamicValues);
         return By.xpath(locator);
     }
 
-    private By getByLocator(String locator) {
+    public By getByLocator(String locator) {
         By by = null;
         if (locator.startsWith("id=") || locator.startsWith("Id=") || locator.startsWith("ID=")) {
             by = By.id(locator.substring(3));
@@ -134,11 +134,11 @@ public class BasePage {
         return by;
     }
 
-    private WebElement getElement(String xpathLocator) {
+    public WebElement getElement(String xpathLocator) {
         return driver.findElement(getByXpath(xpathLocator));
     }
 
-    private WebElement getElement(String xpathLocator, String... dynamicValues) {
+    public WebElement getElement(String xpathLocator, String... dynamicValues) {
         return driver.findElement(getByXpath(xpathLocator, dynamicValues));
     }
 
@@ -206,7 +206,7 @@ public class BasePage {
         for (WebElement item : allItems) {
             if (item.getText().equals(textValue)) {
                 JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
-                jsExecutor.executeScript("arguments[0].schrollIntoView(true);", item);
+                jsExecutor.executeScript("arguments[0].scrollIntoView(true);", item);
                 sleepInSecond(1);
                 item.click();
                 sleepInSecond(1);
@@ -430,6 +430,11 @@ public class BasePage {
         return status;
     }
 
+    public void waitForElementPresence(String xpathLocator) {
+        WebDriverWait explicitWait = new WebDriverWait(driver, longTimeOut);
+        explicitWait.until(ExpectedConditions.presenceOfElementLocated(getByXpath(xpathLocator)));
+    }
+
     public void waitForElementVisible(String xpathLocator) {
         WebDriverWait explicitWait = new WebDriverWait(driver, longTimeOut);
         explicitWait.until(ExpectedConditions.visibilityOfElementLocated(getByXpath(xpathLocator)));
@@ -491,78 +496,8 @@ public class BasePage {
         return driver.manage().getCookies();
     }
 
-    @Step("Click to Shopping cart link")
-    public ShoppingCartPO clickToShoppingCartLink(){
-        waitForElementClickable(BasePageUI.SHOPPING_CART_LINK);
-        clickToElement(BasePageUI.SHOPPING_CART_LINK);
-        return PageGeneratorManager.getShoppingCartPage(driver);
-    }
+    public final long longTimeOut = GlobalConstants.getGlobalConstants().getLongTimeout();
+    public final long shortTimeOut = GlobalConstants.getGlobalConstants().getShortTimeout();
 
-    @Step("Click to login link")
-    public LoginPO clickToLoginLink() {
-        waitForElementClickable(BasePageUI.LOGIN_LINK);
-        clickToElement(BasePageUI.LOGIN_LINK);
-        return PageGeneratorManager.getLoginPage(driver);
-    }
-
-    @Step("Click to register link")
-    public RegisterPO clickToRegisterLink() {
-        waitForElementClickable(BasePageUI.REGISTER_LINK);
-        clickToElement(BasePageUI.REGISTER_LINK);
-        return PageGeneratorManager.getRegisterPage(driver);
-    }
-
-    @Step("Click to logout link")
-    public HomePO clickToLogoutLink() {
-        waitForElementClickable(BasePageUI.LOGOUT_LINK);
-        clickToElement(BasePageUI.LOGOUT_LINK);
-        return PageGeneratorManager.getHomePage(driver);
-    }
-
-    @Step("Verify is my account link displayed")
-    public boolean isMyAccountLinkDisplayed(){
-        waitForElementVisible(BasePageUI.MY_ACCOUNT_LINK);
-        return isElementDisplayed(BasePageUI.MY_ACCOUNT_LINK);
-    }
-
-    @Step("Click to My account link")
-    public MyAccountPO clickToMyAccountLink() {
-        waitForElementClickable(BasePageUI.MY_ACCOUNT_LINK);
-        clickToElement(BasePageUI.MY_ACCOUNT_LINK);
-        return PageGeneratorManager.getMyAccountPage(driver);
-    }
-    @Step("Click to Wishlist link")
-    public WishListPO clickToWishListLink() {
-        waitForElementClickable(BasePageUI.MY_WISHLIST_LINK);
-        clickToElement(BasePageUI.MY_WISHLIST_LINK);
-        return PageGeneratorManager.getWishListPage(driver);
-    }
-
-    @Step("Click to home page logo link")
-    public HomePO clickToHomePageLogoLink(){
-        waitForElementClickable(BasePageUI.HOME_PAGE_LOGO_LINK);
-        clickToElement(BasePageUI.HOME_PAGE_LOGO_LINK);
-        return PageGeneratorManager.getHomePage(driver);
-    }
-
-    @Step("Click to Footer link: {0}")
-    public BasePage clickToFooterLinkByName(String name){
-        waitForElementClickable(BasePageUI.DYNAMIC_FOOTER_LINK_BY_NAME,name);
-        clickToElement(BasePageUI.DYNAMIC_FOOTER_LINK_BY_NAME,name);
-
-        switch (name) {
-            case "Search":
-                return PageGeneratorManager.getSearchPage(driver);
-            case "Shopping cart":
-                return PageGeneratorManager.getShoppingCartPage(driver);
-            case "Compare products list":
-                return PageGeneratorManager.getCompareProductPage(driver);
-            default:
-                return null;
-        }
-    }
-    private final long longTimeOut = GlobalConstants.getGlobalConstants().getLongTimeout();
-    private final long shortTimeOut = GlobalConstants.getGlobalConstants().getShortTimeout();
-
-    private WebDriver driver;
+    public WebDriver driver;
 }

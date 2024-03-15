@@ -20,6 +20,7 @@ public class GlobalConstants {
     }
     private final String adminPageUrl = "https://admin-demo.nopcommerce.com/login?ReturnUrl=/admin/";
     private final String portalPageUrl = "https://demo.nopcommerce.com/";
+    private final String logoutPageUrl = portalPageUrl + "/logout";
     private final String projectPath = System.getProperty("user.dir");
     private final String osName = System.getProperty("os.name");
     private final String javaVersion = System.getProperty("java.version");

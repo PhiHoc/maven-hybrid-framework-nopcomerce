@@ -10,7 +10,7 @@
     <test name = "Run on chrome" preserve-order="true">
         <classes>
             <class name="commons.CommonRegister"></class>
-            <class name="com.nopcomerce.user.Wishlist_Compare_RecentViewTest"></class>
+            <class name="com.nopcomerce.user.WishlistCompareRecentViewTest"></class>
         </classes>
     </test>
 </suite>

@@ -1,8 +1,7 @@
 package commons;
 
-import nopcomerce.pageObjects.user.HomePO;
-import nopcomerce.pageObjects.user.PageGeneratorManager;
-import nopcomerce.pageObjects.user.RegisterPO;
+import com.nopcomerce.pageObjects.user.HomePO;
+import com.nopcomerce.pageObjects.user.RegisterPO;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;

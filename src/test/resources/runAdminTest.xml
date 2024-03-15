@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Run Admin Test">
+    <listeners>
+        <!--        <listener class-name="org.uncommons.reportng.HTMLReporter"/>-->
+        <!--        <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>-->
+        <!--        <listener class-name="reportConfig.ReportNGListener"/>-->
+        <listener class-name="reportConfig.AllureTestListener"/>
+    </listeners>
+
+    <test name="Run on chrome" preserve-order="true">
+        <parameter name="browser" value="CHROME"/>
+        <parameter name="env" value="admin"/>
+
+        <groups>
+            <run>
+                <include name ="customer"/>
+            </run>
+        </groups>
+
+        <classes>
+            <class name="com.nopcomerce.admin.AdminTest"/>
+<!--            <methods>-->
+<!--                <include name="Admin_06_Go_Directly_To_Product_SKU"></include>-->
+<!--            </methods>-->
+        </classes>
+    </test>
+</suite>

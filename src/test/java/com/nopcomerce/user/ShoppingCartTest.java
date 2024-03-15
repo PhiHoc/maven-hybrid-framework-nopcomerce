@@ -1,13 +1,12 @@
 package com.nopcomerce.user;
 
-import com.nopcomerce.data.UserData;
 import commons.BaseTest;
 import commons.CommonRegister;
 import io.qameta.allure.Description;
-import nopcomerce.pageObjects.user.HomePO;
-import nopcomerce.pageObjects.user.LoginPO;
-import nopcomerce.pageObjects.user.PageGeneratorManager;
-import nopcomerce.pageObjects.user.ShoppingCartPO;
+import com.nopcomerce.pageObjects.user.HomePO;
+import com.nopcomerce.pageObjects.user.LoginPO;
+import commons.PageGeneratorManager;
+import com.nopcomerce.pageObjects.user.ShoppingCartPO;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;

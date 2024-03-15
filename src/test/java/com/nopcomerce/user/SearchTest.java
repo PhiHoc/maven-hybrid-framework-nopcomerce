@@ -2,10 +2,10 @@ package com.nopcomerce.user;
 
 import commons.BaseTest;
 import io.qameta.allure.Description;
-import nopcomerce.pageObjects.user.HomePO;
-import nopcomerce.pageObjects.user.LoginPO;
-import nopcomerce.pageObjects.user.PageGeneratorManager;
-import nopcomerce.pageObjects.user.SearchPO;
+import com.nopcomerce.pageObjects.user.HomePO;
+import com.nopcomerce.pageObjects.user.LoginPO;
+import commons.PageGeneratorManager;
+import com.nopcomerce.pageObjects.user.SearchPO;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;

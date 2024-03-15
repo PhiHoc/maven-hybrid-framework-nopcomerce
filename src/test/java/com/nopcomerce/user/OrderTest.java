@@ -1,14 +1,11 @@
 package com.nopcomerce.user;
 
 import com.nopcomerce.data.UserData;
+import com.nopcomerce.pageObjects.user.*;
 import commons.BaseTest;
 import commons.CommonRegister;
+import commons.PageGeneratorManager;
 import io.qameta.allure.Description;
-import nopcomerce.PageUIs.user.ShoppingCartPUI;
-import nopcomerce.pageObjects.user.*;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.NoAlertPresentException;
-import org.openqa.selenium.UnhandledAlertException;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -53,6 +50,10 @@ public class OrderTest extends BaseTest {
 
         log.info("Order 01 - Step 04: Click to 'Shopping cart' link");
         shoppingCartPO = homePO.clickToShoppingCartLink();
+
+        log.info("Order 01 - Step 04: Update product quantity to 2");
+        shoppingCartPO.enterToQuantityTextBoxByProductName(macbookName,"2");
+        shoppingCartPO.clickToUpdateCartButton();
 
         log.info("Order 01 - Step 05: Click to 'Term of service' checkbox");
         shoppingCartPO.checkToAgreeTermOfServiceCheckbox();
@@ -336,7 +337,7 @@ public class OrderTest extends BaseTest {
         shoppingCartPO.clickToReOrderButton();
 
         log.info("Order 03 - Step 05: Update product quantity to 10");
-        shoppingCartPO.enterToQuantityTextBoxByProductName(macbookName,"10");
+        shoppingCartPO.enterToQuantityTextBoxByProductName(macbookName, "10");
 
         log.info("Order 03 - Step 06: Click to 'Upadate cart' button");
         shoppingCartPO.clickToUpdateCartButton();
@@ -465,7 +466,7 @@ public class OrderTest extends BaseTest {
 
     @AfterClass(alwaysRun = true)
     public void afterClass() {
-//        closeBrowserDriver();
+        closeBrowserDriver();
     }
 
     private WebDriver driver;
