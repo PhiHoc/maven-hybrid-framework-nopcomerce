@@ -4,15 +4,17 @@ This Selenium Hybrid Framework is designed for automated testing of the NopComme
 
 ## Framework Structure
 ### 1. Core Components
+ * Common package: Contains common classes and constants used across the framework.
+ * Base Page: Encapsulates methods to interact with web elements such as clicking, typing text, selecting options, verifying element presence, etc. Serves as the foundation for all page objects.
+ * Base Test: Encapsulates common methods such as launching and closing the browser, configuring the browser environment, handling errors or failures, etc.Serves as the foundation for all test classes.
  * Page Objects: Contains page classes representing different pages of the NopCommerce website. Each page class encapsulates the elements and actions on that page.
- * Page User Interface: *updated later :D*
- * Common package: *updated later :D*
+ * Page User Interface: Contains page UI classes that manage element locators corresponding to each page object.
  * Test Cases: Includes test case classes containing the actual test methods. These test methods utilize page objects to interact with the web elements and perform the test steps.
  * Utilities: Contains utility classes for common functionalities such as reading data from Excel files, logging, and handling browser configurations.
- * Page Factory: *updated later :D*
+ * Page Factory: A design pattern used to initialize the browser environment.
 ### 2. Test Data
- * UserData / AdminData: Static Java classes containing test data in a constant variable form. Included profile data such as name, email, country, city, phone number, etc.
- * Faker library: A library to generate fake data for testing.
+ * UserData / AdminData: Containing test data in a constant variable form. It included profile data such as name, email, country, city, phone number, etc.
+ * Faker library: A Java library to generate fake data for testing.
 ### 3. XML Configuration Files
 * log4j.xml: Configure logging for test classes
 * run*.xml: Custom XML file for running test cases.
