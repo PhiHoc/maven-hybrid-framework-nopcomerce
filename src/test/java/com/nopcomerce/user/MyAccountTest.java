@@ -240,10 +240,10 @@ public class MyAccountTest extends BaseTest {
     @AfterClass(alwaysRun = true)
     public void afterClas() {
         log.info("Update Common User info");
-        CommonRegister.firstName = firstName;
-        CommonRegister.lastName = lastName;
-        CommonRegister.email = newEmail;
-        CommonRegister.password = password;
+        CommonRegister.setFirstName(firstName);
+        CommonRegister.setLastName(lastName);
+        CommonRegister.setEmail(newEmail);
+        CommonRegister.setPassword(newPassword);
         closeBrowserDriver();
     }
 
