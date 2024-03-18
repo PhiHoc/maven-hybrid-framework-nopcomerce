@@ -18,8 +18,8 @@ public class ShoppingCartTest extends BaseTest {
     @Parameters({"browser", "env"})
     @BeforeClass
     public void beforeClass(String browserName, String envName) {
-        email = CommonRegister.email;
-        password = CommonRegister.password;
+        email = CommonRegister.getEmail();
+        password = CommonRegister.getPassword();
         pcName = "Build your own computer";
         lenovoName = "Lenovo Thinkpad X1 Carbon Laptop";
         macbookName = "Apple MacBook Pro 13-inch";

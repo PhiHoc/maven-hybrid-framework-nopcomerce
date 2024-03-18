@@ -2,6 +2,7 @@ package commons;
 
 import com.nopcomerce.pageObjects.user.HomePO;
 import com.nopcomerce.pageObjects.user.RegisterPO;
+import lombok.Getter;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
@@ -34,5 +35,6 @@ public class CommonRegister extends BaseTest {
     private RegisterPO registerPO;
     private DataHelper dataHelper;
 
-    public static String firstName, lastName, email, password;
+    @Getter
+    private static String firstName, lastName, email, password;
 }

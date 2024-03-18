@@ -23,8 +23,8 @@ public class MyAccountTest extends BaseTest {
         dataHelper = DataHelper.getDataHelper();
         firstName = dataHelper.getFirtName();
         lastName = dataHelper.getLastName();
-        email = CommonRegister.email;
-        oldPassword = password = CommonRegister.password;
+        email = CommonRegister.getEmail();
+        oldPassword = password = CommonRegister.getPassword();
         newPassword = dataHelper.getPassword();
         newEmail = dataHelper.getEmail();
 

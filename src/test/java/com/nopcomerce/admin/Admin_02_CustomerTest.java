@@ -61,7 +61,7 @@ public class Admin_02_CustomerTest extends BaseTest {
         adminDashboardPO.clickToSideBarLinkByName("Customers");
 
         log.info("Customer 01 - Step 02: Click to open 'Customers' sub link at side bar");
-        adminDashboardPO.clickToSideBarSubLinkByName(" Customers");
+        adminDashboardPO.clickToSideBarSubLinkByName("Customers");
         customersPO = PageGeneratorManager.getCustomersPage(driver);
 
         log.info("Customer 01 - Step 04: Click to 'Add new' button");
@@ -127,7 +127,7 @@ public class Admin_02_CustomerTest extends BaseTest {
         customersPO.clickToSideBarLinkByName("Customers");
 
         log.info("Customer 02 - Step 02: Click to open 'Customers' sub link at side bar");
-        customersPO.clickToSideBarSubLinkByName(" Customers");
+        customersPO.clickToSideBarSubLinkByName("Customers");
 
         log.info("Customer 02 - Step 03: Enter to 'Email' textbox with value: '" + customerEmail + "'");
         customersPO.enterToTextboxByLabel("Email", customerEmail);
@@ -160,7 +160,7 @@ public class Admin_02_CustomerTest extends BaseTest {
         customersPO.clickToSideBarLinkByName("Customers");
 
         log.info("Customer 03 - Step 02: Click to open 'Customers' sub link at side bar");
-        customersPO.clickToSideBarSubLinkByName(" Customers");
+        customersPO.clickToSideBarSubLinkByName("Customers");
 
         log.info("Customer 03 - Step 03: Enter to 'First name' textbox with value: '" + UserData.FIRST_NAME + "'");
         customersPO.enterToTextboxByLabel("First name", UserData.FIRST_NAME);
@@ -193,7 +193,7 @@ public class Admin_02_CustomerTest extends BaseTest {
         customersPO.clickToSideBarLinkByName("Customers");
 
         log.info("Customer 04 - Step 02: Click to open 'Customers' sub link at side bar");
-        customersPO.clickToSideBarSubLinkByName(" Customers");
+        customersPO.clickToSideBarSubLinkByName("Customers");
 
         log.info("Customer 04 - Step 03: Enter to 'Company' textbox with value: '" + UserData.COMPANY_NAME + "'");
         customersPO.enterToTextboxByLabel("Company", UserData.COMPANY_NAME);
@@ -223,7 +223,7 @@ public class Admin_02_CustomerTest extends BaseTest {
         customersPO.clickToSideBarLinkByName("Customers");
 
         log.info("Customer 05 - Step 02: Click to open 'Customers' sub link at side bar");
-        customersPO.clickToSideBarSubLinkByName(" Customers");
+        customersPO.clickToSideBarSubLinkByName("Customers");
 
         log.info("Customer 05 - Step 03: Enter to 'Email' textbox with value: '" + customerEmail + "'");
         customersPO.enterToTextboxByLabel("Email", customerEmail);
@@ -266,7 +266,7 @@ public class Admin_02_CustomerTest extends BaseTest {
         customersPO.clickToSideBarLinkByName("Customers");
 
         log.info("Customer 06 - Step 02: Click to open 'Customers' sub link at side bar");
-        customersPO.clickToSideBarSubLinkByName(" Customers");
+        customersPO.clickToSideBarSubLinkByName("Customers");
 
         log.info("Customer 06 - Step 03: Enter to 'Email' textbox with value: '" + customerEmail + "'");
         customersPO.enterToTextboxByLabel("Email", customerEmail);
@@ -327,7 +327,7 @@ public class Admin_02_CustomerTest extends BaseTest {
         customersPO.clickToSideBarLinkByName("Customers");
 
         log.info("Customer 07 - Step 02: Click to open 'Customers' sub link at side bar");
-        customersPO.clickToSideBarSubLinkByName(" Customers");
+        customersPO.clickToSideBarSubLinkByName("Customers");
 
         log.info("Customer 07 - Step 03: Enter to 'Email' textbox with value: '" + editCustomerEmail + "'");
         customersPO.enterToTextboxByLabel("Email", editCustomerEmail);
@@ -398,7 +398,7 @@ public class Admin_02_CustomerTest extends BaseTest {
         customersPO.clickToSideBarLinkByName("Customers");
 
         log.info("Customer 08 - Step 02: Click to open 'Customers' sub link at side bar");
-        customersPO.clickToSideBarSubLinkByName(" Customers");
+        customersPO.clickToSideBarSubLinkByName("Customers");
 
         log.info("Customer 08 - Step 03: Enter to 'Email' textbox with value: '" + editCustomerEmail + "'");
         customersPO.enterToTextboxByLabel("Email", editCustomerEmail);
@@ -474,7 +474,7 @@ public class Admin_02_CustomerTest extends BaseTest {
         customersPO.clickToSideBarLinkByName("Customers");
 
         log.info("Customer 09 - Step 02: Click to open 'Customers' sub link at side bar");
-        customersPO.clickToSideBarSubLinkByName(" Customers");
+        customersPO.clickToSideBarSubLinkByName("Customers");
 
         log.info("Customer 09 - Step 03: Enter to 'Email' textbox with value: '" + editCustomerEmail + "'");
         customersPO.enterToTextboxByLabel("Email", editCustomerEmail);

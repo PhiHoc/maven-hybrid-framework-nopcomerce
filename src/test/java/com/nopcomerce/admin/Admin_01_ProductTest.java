@@ -50,7 +50,7 @@ public class Admin_01_ProductTest extends BaseTest {
         adminDashboardPO.clickToSideBarLinkByName("Catalog");
 
         log.info("Admin 01 - Step 02: Click to open 'Products' link at side bar");
-        adminDashboardPO.clickToSideBarSubLinkByName(" Products");
+        adminDashboardPO.clickToSideBarSubLinkByName("Products");
         catalogPO = PageGeneratorManager.getCatalogPage(driver);
 
         log.info("Admin 01 - Step 03: Click to close 'Catalog' link at side bar");
@@ -85,7 +85,7 @@ public class Admin_01_ProductTest extends BaseTest {
         catalogPO.clickToSideBarLinkByName("Catalog");
 
         log.info("Admin 02 - Step 02: Click to open 'Products' link at side bar");
-        catalogPO.clickToSideBarSubLinkByName(" Products");
+        catalogPO.clickToSideBarLinkByName(" Products");
 
         log.info("Admin 02 - Step 03: Click to close 'Catalog' link at side bar");
         catalogPO.clickToSideBarLinkByName("Catalog");
@@ -113,7 +113,7 @@ public class Admin_01_ProductTest extends BaseTest {
         catalogPO.clickToSideBarLinkByName("Catalog");
 
         log.info("Admin 03 - Step 02: Click to open 'Products' link at side bar");
-        catalogPO.clickToSideBarSubLinkByName(" Products");
+        catalogPO.clickToSideBarSubLinkByName("Products");
 
         log.info("Admin 03 - Step 03: Click to close 'Catalog' link at side bar");
         catalogPO.clickToSideBarLinkByName("Catalog");
@@ -153,7 +153,7 @@ public class Admin_01_ProductTest extends BaseTest {
         catalogPO.clickToSideBarLinkByName("Catalog");
 
         log.info("Admin 04- Step 02: Click to open 'Products' link at side bar");
-        catalogPO.clickToSideBarSubLinkByName(" Products");
+        catalogPO.clickToSideBarSubLinkByName("Products");
 
         log.info("Admin 04- Step 03: Click to close 'Catalog' link at side bar");
         catalogPO.clickToSideBarLinkByName("Catalog");
@@ -193,7 +193,7 @@ public class Admin_01_ProductTest extends BaseTest {
         catalogPO.clickToSideBarLinkByName("Catalog");
 
         log.info("Admin 05 - Step 02: Click to open 'Products' link at side bar");
-        catalogPO.clickToSideBarSubLinkByName(" Products");
+        catalogPO.clickToSideBarSubLinkByName("Products");
 
         log.info("Admin 05 - Step 03: Click to close 'Catalog' link at side bar");
         catalogPO.clickToSideBarLinkByName("Catalog");
@@ -227,7 +227,7 @@ public class Admin_01_ProductTest extends BaseTest {
         catalogPO.clickToSideBarLinkByName("Catalog");
 
         log.info("Admin 06 - Step 02: Click to open 'Products' link at side bar");
-        catalogPO.clickToSideBarSubLinkByName(" Products");
+        catalogPO.clickToSideBarSubLinkByName("Products");
 
         log.info("Admin 06 - Step 03: Click to close 'Catalog' link at side bar");
         catalogPO.clickToSideBarLinkByName("Catalog");

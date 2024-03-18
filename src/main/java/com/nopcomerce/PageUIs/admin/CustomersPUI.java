@@ -1,5 +1,8 @@
 package com.nopcomerce.PageUIs.admin;
 
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
 public class CustomersPUI {
     public static final String ADD_NEW_BUTTON = "//a[contains(@href,'Create')]";
     public static final String MALE_RADIO = "//input[@id='Gender_Male']";
@@ -21,6 +24,4 @@ public class CustomersPUI {
     public static final String ADD_NEW_ADDRESS_BUTTON = "//button[contains(text(),'Add new address')]";
     public static final String DYNAMIC_ADDRESS_ROW_TABLE_INFO_BY_INDEX = "//div[starts-with(@id,'customer-addresses')]//tr[@class='odd' or @class = 'even'][%s]";
     public static final String DYNAMIC_ADDRESS_CELL_INFO_BY_ROW_AND_COLUMN_INDEX = "//div[@id='customer-addresses-grid_wrapper']//tbody//tr[%s]//td[%s]";
-
-
 }

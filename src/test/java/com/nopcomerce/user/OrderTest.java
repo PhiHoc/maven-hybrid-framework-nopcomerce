@@ -17,8 +17,8 @@ public class OrderTest extends BaseTest {
     @Parameters({"browser", "env"})
     @BeforeClass
     public void beforeClass(String browserName, String envName) {
-        email = CommonRegister.email;
-        password = CommonRegister.password;
+        email = CommonRegister.getEmail();
+        password = CommonRegister.getPassword();
         macbookName = "Apple MacBook Pro 13-inch";
 
         driver = getBrowserDriver(browserName, envName);

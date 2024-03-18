@@ -24,8 +24,8 @@ public class LoginTest extends BaseTest {
         invalidEmail = "auto!@#$%.com";
         invalidPassword = "123456";
 
-        registeredEmail = CommonRegister.email;
-        validPassword = CommonRegister.password;
+        registeredEmail = CommonRegister.getEmail();
+        validPassword = CommonRegister.getPassword();
 
         driver = getBrowserDriver(browserName, envName);
         homePO = PageGeneratorManager.getHomePage(driver);

@@ -16,8 +16,8 @@ public class BaseComponentUI {
     /**
      * Admin page UI
      */
-    public static final String DYNAMIC_SIDEBAR_LINK_BY_NAME = "//i[starts-with(@class,'right')]/parent::p[contains(text(),'%s')]";
-    public static final String DYNAMIC_SIDEBAR_SUB_LINK_BY_NAME = "//i[contains(@class,'fa-dot-circle')]/following-sibling::p[text()='%s']";
+    public static final String DYNAMIC_SIDEBAR_LINK_BY_NAME = "//i[starts-with(@class,'right')]/parent::p[text()[normalize-space()='%s']]";
+    public static final String DYNAMIC_SIDEBAR_SUB_LINK_BY_NAME = "//i[contains(@class,'fa-dot-circle')]/following-sibling::p[text()[normalize-space()='%s']]";
     public static final String DYNAMIC_TEXTBOX_BY_LABEL = "//label[text()='%s']//ancestor::div[@class='form-group row']//input";
     public static final String DYNAMIC_DROPDOWN_BY_LABEL = "//label[text()='%s']//ancestor::div[@class='form-group row']//select";
     public static final String LOG_OUT_LINK = "//a[text()='Logout']";

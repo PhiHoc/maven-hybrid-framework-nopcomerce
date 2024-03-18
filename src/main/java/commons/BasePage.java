@@ -1,8 +1,10 @@
 package commons;
 
 import com.nopcomerce.pageObjects.user.*;
+import factoryBrowser.FireFoxDriverManager;
 import io.qameta.allure.Step;
 import org.openqa.selenium.*;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -486,6 +488,7 @@ public class BasePage {
         WebDriverWait explicitWait = new WebDriverWait(driver, longTimeOut);
         explicitWait.until(ExpectedConditions.elementToBeClickable(getByXpath(xpathLocator, dynamicValues)));
     }
+
     public void setCookie(Set<Cookie> cookies) {
         for (Cookie cookie : cookies) {
             driver.manage().addCookie(cookie);

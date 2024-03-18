@@ -21,11 +21,11 @@ public class WishlistCompareRecentViewTest extends BaseTest {
     @BeforeClass(alwaysRun = true)
     public void beforeClass(String browserName, String envName) {
 
-        firstName = CommonRegister.firstName;
-        lastName = CommonRegister.lastName;
+        firstName = CommonRegister.getFirstName();
+        lastName = CommonRegister.getLastName();
         fullName = firstName + " " + lastName;
-        email = CommonRegister.email;
-        password = CommonRegister.password;
+        email = CommonRegister.getEmail();
+        password = CommonRegister.getPassword();
 
         noteBookNames.add("Apple MacBook Pro 13-inch");
         noteBookNames.add("Asus N551JK-XO076H Laptop");
