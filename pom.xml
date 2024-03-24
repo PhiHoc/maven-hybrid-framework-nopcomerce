@@ -5,10 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>maven-hybrid-framework-nopcomerce</artifactId>
-    <version>1.0-SNAPSHOT</version>
-
-    <!-- Khai báo biến - Global Variable -->
+    <artifactId>maven-hybrid-framework-nopcomerce</artifactId> <!-- Khai báo biến - Global Variable -->
     <properties>
         <!-- Encoding for Build/ Console -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -32,6 +29,9 @@
         <lombok.version>1.18.12</lombok.version>
         <javafaker.version>1.0.2</javafaker.version>
     </properties>
+    <version>1.0-SNAPSHOT</version>
+
+
 
     <!-- Quản lí thư viện -->
     <dependencies>

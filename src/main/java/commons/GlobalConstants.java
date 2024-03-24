@@ -20,6 +20,9 @@ public class GlobalConstants {
     }
     private final String adminPageUrl = "https://admin-demo.nopcommerce.com/";
     private final String portalPageUrl = "https://demo.nopcommerce.com/";
+    private final String userName = "krailnot_TDFpeH";
+    private final String automateKey = "UddPFjAt2dKXNfRrSKuD";
+    private final String browserStackUrl = "https://" + userName + ":" + automateKey + "@hub.browserstack.com/wd/hub";
     private final String logoutPageUrl = portalPageUrl + "/logout";
     private final String projectPath = System.getProperty("user.dir");
     private final String osName = System.getProperty("os.name");

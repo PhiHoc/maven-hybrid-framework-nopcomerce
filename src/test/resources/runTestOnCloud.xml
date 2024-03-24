@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Selenium Grid">
+    <listeners>
+        <!--        <listener class-name="org.uncommons.reportng.HTMLReporter"/>-->
+        <!--        <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>-->
+        <!--        <listener class-name="reportConfig.ReportNGListener"/>-->
+        <listener class-name="reportConfig.AllureTestListener"/>
+    </listeners>
+
+    <test name="Run on chrome">
+        <parameter name="browser" value="Chrome"/>
+        <parameter name="role" value="user"/>
+        <parameter name="envName" value="BROWSERSTACK"/>
+        <parameter name="osName" value="Windows" />
+        <parameter name="osVersion" value="11" />
+        <classes>
+            <class name="com.nopcomerce.user.SearchTest"/>
+        </classes>
+    </test>
+
+    <test name="Run on firefox">
+        <parameter name="browser" value="Firefox"/>
+        <parameter name="role" value="user"/>
+        <parameter name="envName" value="BROWSERSTACK"/>
+        <parameter name="osName" value="OS X" />
+        <parameter name="osVersion" value="Big Sur" />
+        <classes>
+            <class name="com.nopcomerce.user.SearchTest"/>
+        </classes>
+    </test>
+</suite>

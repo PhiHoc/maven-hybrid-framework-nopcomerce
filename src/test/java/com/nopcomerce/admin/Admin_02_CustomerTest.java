@@ -21,9 +21,9 @@ import utilities.DataHelper;
 import java.awt.desktop.UserSessionEvent;
 
 public class Admin_02_CustomerTest extends BaseTest {
-    @Parameters({"browser", "env"})
+    @Parameters({"browser", "role"})
     @BeforeClass(alwaysRun = true)
-    public void beforeClass(String browserName, String envName) {
+    public void beforeClass(String browserName, String role) {
         dataHelper = DataHelper.getDataHelper();
         customerEmail = dataHelper.getEmail();
         addressEmail = dataHelper.getEmail();
@@ -38,7 +38,7 @@ public class Admin_02_CustomerTest extends BaseTest {
         editFullname = editFirstName + " " + editLastName;
         editDob = "2/2/1999";
 
-        driver = getBrowserDriver(browserName, envName);
+        driver = getBrowserDriver(browserName, role);
         adminLoginPO = PageGeneratorManager.getAdminLoginPage(driver);
 
         log.info("Precondition - Step 01: Enter to 'Email' textbox with value: '" + AdminData.EMAIL + "'");

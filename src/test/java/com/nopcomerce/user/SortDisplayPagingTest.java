@@ -12,10 +12,10 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class SortDisplayPagingTest extends BaseTest {
-    @Parameters({"browser", "env"})
+    @Parameters({"browser", "role"})
     @BeforeClass(alwaysRun = true)
-    public void beforeClass(String browserName, String envName) {
-        driver = getBrowserDriver(browserName, envName);
+    public void beforeClass(String browserName, String role) {
+        driver = getBrowserDriver(browserName, role);
         homePO = PageGeneratorManager.getHomePage(driver);
 
         log.info("Pre-condition Step 01 - Click to Computers menu");

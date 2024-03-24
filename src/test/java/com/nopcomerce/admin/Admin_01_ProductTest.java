@@ -16,9 +16,9 @@ import org.testng.annotations.Test;
 import utilities.DataHelper;
 
 public class Admin_01_ProductTest extends BaseTest {
-    @Parameters({"browser", "env"})
+    @Parameters({"browser", "role"})
     @BeforeClass(alwaysRun = true)
-    public void beforeClass(String browserName, String envName) {
+    public void beforeClass(String browserName, String role) {
         productName = "Lenovo IdeaCentre 600 All-in-One PC";
         productSku = "LE_IC_600";
         productPrice = "500";
@@ -27,7 +27,7 @@ public class Admin_01_ProductTest extends BaseTest {
         dataHelper = DataHelper.getDataHelper();
         email = dataHelper.getEmail();
 
-        driver = getBrowserDriver(browserName, envName);
+        driver = getBrowserDriver(browserName, role);
         adminLoginPO = PageGeneratorManager.getAdminLoginPage(driver);
 
         log.info("Precondition - Step 01: Enter to 'Email' textbox with value: '" + AdminData.EMAIL + "'");

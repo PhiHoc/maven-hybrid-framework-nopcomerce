@@ -15,7 +15,7 @@
 
     <test name="Run on chrome" preserve-order="true">
         <parameter name="browser" value="CHROME"/>
-        <parameter name="env" value="user"/>
+        <parameter name="role" value="user"/>
         <classes>
             <class name="commons.CommonRegister"/>
             <class name="com.nopcomerce.user.RegisterTest"/>

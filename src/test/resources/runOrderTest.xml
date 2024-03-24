@@ -8,7 +8,7 @@
     </listeners>
 
     <parameter name="browser" value="CHROME"/>
-    <parameter name="env" value="user"/>
+    <parameter name="role" value="user"/>
 
 <!--    <groups>-->
 <!--        <run>-->

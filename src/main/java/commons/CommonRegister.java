@@ -13,16 +13,16 @@ import utilities.DataHelper;
 public class CommonRegister extends BaseTest {
 
 
-    @Parameters({"browser", "env"})
+    @Parameters({"browser", "role"})
     @BeforeTest
-    public void beforeTest(String browserName, String envName) {
+    public void beforeTest(String browserName, String role) {
         dataHelper = DataHelper.getDataHelper();
         firstName = dataHelper.getFirtName();
         lastName = dataHelper.getLastName();
         email = dataHelper.getEmail();
         password = dataHelper.getPassword();
 
-        driver = getBrowserDriver(browserName,envName);
+        driver = getBrowserDriver(browserName,role);
         homePO = PageGeneratorManager.getHomePage(driver);
         registerPO = homePO.clickToRegisterLink();
         registerPO.registerValidAccount(firstName,lastName,email,password);

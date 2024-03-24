@@ -17,9 +17,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WishlistCompareRecentViewTest extends BaseTest {
-    @Parameters({"browser", "env"})
+    @Parameters({"browser", "role"})
     @BeforeClass(alwaysRun = true)
-    public void beforeClass(String browserName, String envName) {
+    public void beforeClass(String browserName, String role) {
 
         firstName = CommonRegister.getFirstName();
         lastName = CommonRegister.getLastName();
@@ -34,7 +34,7 @@ public class WishlistCompareRecentViewTest extends BaseTest {
         noteBookNames.add("Lenovo Thinkpad X1 Carbon Laptop");
         pcName = "Build your own computer";
 
-        driver = getBrowserDriver(browserName, envName);
+        driver = getBrowserDriver(browserName, role);
         homePO = PageGeneratorManager.getHomePage(driver);
 
         log.info("Pre-condition Step 01 - Click to Login link");

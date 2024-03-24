@@ -9,7 +9,7 @@
 
     <test name="Run on chrome" preserve-order="true">
         <parameter name="browser" value="CHROME"/>
-        <parameter name="env" value="admin"/>
+        <parameter name="role" value="admin"/>
 
         <groups>
             <run>

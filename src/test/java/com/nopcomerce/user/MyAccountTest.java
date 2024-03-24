@@ -17,9 +17,9 @@ import utilities.DataHelper;
 
 @Feature("My account tests")
 public class MyAccountTest extends BaseTest {
-    @Parameters({"browser", "env"})
+    @Parameters({"browser", "role"})
     @BeforeClass
-    public void beforeClass(String browserName, String envName) {
+    public void beforeClass(String browserName, String role) {
         dataHelper = DataHelper.getDataHelper();
         firstName = dataHelper.getFirtName();
         lastName = dataHelper.getLastName();
@@ -31,7 +31,7 @@ public class MyAccountTest extends BaseTest {
         reviewTitle = "Review title";
         reviewText = "Review Text";
 
-        driver = getBrowserDriver(browserName, envName);
+        driver = getBrowserDriver(browserName, role);
         homePO = PageGeneratorManager.getHomePage(driver);
 
         log.info("Precodition Step 01 - Click to login link");

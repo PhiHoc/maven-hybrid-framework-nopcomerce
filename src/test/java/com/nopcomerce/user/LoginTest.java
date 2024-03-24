@@ -16,9 +16,9 @@ import utilities.DataHelper;
 @Feature("Login Tests")
 public class LoginTest extends BaseTest {
 
-    @Parameters({"browser", "env"})
+    @Parameters({"browser", "role"})
     @BeforeClass
-    public void beforeClass(String browserName, String envName) {
+    public void beforeClass(String browserName, String role) {
         dataHelper = DataHelper.getDataHelper();
         unRegisteredEmail = dataHelper.getEmail();
         invalidEmail = "auto!@#$%.com";
@@ -27,7 +27,7 @@ public class LoginTest extends BaseTest {
         registeredEmail = CommonRegister.getEmail();
         validPassword = CommonRegister.getPassword();
 
-        driver = getBrowserDriver(browserName, envName);
+        driver = getBrowserDriver(browserName, role);
         homePO = PageGeneratorManager.getHomePage(driver);
 
         log.info("Pre-condition - Open Login page");

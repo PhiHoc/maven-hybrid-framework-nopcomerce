@@ -14,14 +14,14 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class OrderTest extends BaseTest {
-    @Parameters({"browser", "env"})
+    @Parameters({"browser", "role"})
     @BeforeClass
-    public void beforeClass(String browserName, String envName) {
+    public void beforeClass(String browserName, String role) {
         email = CommonRegister.getEmail();
         password = CommonRegister.getPassword();
         macbookName = "Apple MacBook Pro 13-inch";
 
-        driver = getBrowserDriver(browserName, envName);
+        driver = getBrowserDriver(browserName, role);
         homePO = PageGeneratorManager.getHomePage(driver);
 
         log.info("Pre-condition Step 01 - Click to Login link");

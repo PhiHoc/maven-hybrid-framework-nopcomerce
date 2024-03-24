@@ -16,9 +16,9 @@ import utilities.DataHelper;
 @Feature("Register Tests")
 public class RegisterTest extends BaseTest {
 
-    @Parameters({"browser", "env"})
+    @Parameters({"browser", "role"})
     @BeforeClass
-    public void beforeMethod(String browserName, String envName) {
+    public void beforeMethod(String browserName, String role) {
 
         dataHelper = DataHelper.getDataHelper();
 
@@ -30,7 +30,7 @@ public class RegisterTest extends BaseTest {
         invalidConfirmPassword = "123456";
         invalidPassword = "123";
 
-        driver = getBrowserDriver(browserName, envName);
+        driver = getBrowserDriver(browserName, role);
 
         log.info("Before Class - Get Home Page");
         homePO = PageGeneratorManager.getHomePage(driver);

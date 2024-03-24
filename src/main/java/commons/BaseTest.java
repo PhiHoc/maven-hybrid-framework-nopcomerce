@@ -1,6 +1,9 @@
 package commons;
 
 import factoryBrowser.*;
+import factoryEnvironment.BrowserstackFactory;
+import factoryEnvironment.EnvironmentList;
+import factoryEnvironment.LocalFactory;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.openqa.selenium.WebDriver;
@@ -32,42 +35,44 @@ public class BaseTest {
         deleteAllFileInFolder("allure-json");
     }
 
-    protected WebDriver getBrowserDriver(String browserName,String env) {
-        BrowserList browser = BrowserList.valueOf(browserName);
-        switch (browser){
-            case CHROME:
-                driver = new ChromeDriverManager().getBrowserDriver();
-                break;
-            case H_CHROME:
-                driver = new HeadlessChromeDriverManager().getBrowserDriver();
-                break;
-            case FIREFOX:
-                driver = new FireFoxDriverManager().getBrowserDriver();
-                break;
-            case H_FIREFOX:
-                driver = new HeadlessFireFoxDriverManager().getBrowserDriver();
-                break;
-            case OPERA:
-                driver = new OperaDriverManager().getBrowserDriver();
-                break;
-            case EDGE:
-                driver = new EdgeDriverManager().getBrowserDriver();
-                break;
-            default:
-                throw new BrowserNotSupportedException(browserName);
-        }
-
-        driver.get(getEnvironment(env));
+    protected WebDriver getBrowserDriver(String browserName,String role) {
+        driver  = new LocalFactory(browserName).createDriver();
+        driver.get(getRoleUrl(role));
         driver.manage().timeouts().implicitlyWait(longTimeout, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         return driver;
     }
 
-    protected String getEnvironment(String env) {
+    protected WebDriver getBrowserDriver(String browserName,String role,String envName,String osName, String osVersion){
+        EnvironmentList env = EnvironmentList.valueOf(envName);
+
+        switch (env){
+            case LOCAL:
+                driver = new LocalFactory(browserName).createDriver();
+            case BROWSERSTACK:
+                driver = new BrowserstackFactory(browserName,osName,osVersion).createDriver();
+                break;
+            case SAUCELAB:
+                break;
+            case LAMBDA:
+                break;
+            case CROSSBROWSER:
+                break;
+            default:
+                driver = new LocalFactory(browserName).createDriver();
+                break;
+        }
+        driver.get(getRoleUrl(role));
+        driver.manage().timeouts().implicitlyWait(longTimeout, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
+        return driver;
+    }
+
+    protected String getRoleUrl(String role) {
         String url = "";
-        if (env.equals("admin")) {
+        if (role.equals("admin")) {
             url = GlobalConstants.getGlobalConstants().getAdminPageUrl();
-        } else if (env.equals("user")) {
+        } else if (role.equals("user")) {
             url = GlobalConstants.getGlobalConstants().getPortalPageUrl();
         } else {
             throw new RuntimeException("Please input correct environment name");
